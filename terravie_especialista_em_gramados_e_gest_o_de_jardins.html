@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERRAVIE | Especialista em Gramados e Gestão de Jardins</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel & Cormorant Garamond (Serifadas) + Plus Jakarta Sans (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        editorial: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        olive: {
+                            50: '#f5f7f1',
+                            100: '#e6ecdc',
+                            200: '#cddab9',
+                            300: '#adc18f',
+                            400: '#8ba468',
+                            500: '#6c8749',
+                            600: '#5A6E31', // Verde-musgo médio do logo
+                            700: '#485927',
+                            800: '#3B4922', // Verde-oliva escuro principal
+                            900: '#2E3A19', // Verde-oliva profundo
+                            950: '#1B230E',
+                        },
+                        earth: {
+                            50: '#faf6f2',
+                            100: '#f2e7dc',
+                            200: '#e3ccb6',
+                            300: '#cfa987',
+                            400: '#b58258',
+                            500: '#855830', // Cobre/Terra claro
+                            600: '#6B4423', // Marrom-terra principal do logo
+                            700: '#543419',
+                            800: '#3d2511',
+                        },
+                        parchment: {
+                            50: '#F7F5F0', // Fundo claro pergaminho
+                            100: '#EFECE4', // Fundo principal areia/pergaminho
+                            200: '#E2DDD0', // Bordas suaves
+                            300: '#CFC7B4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #EFECE4;
+            color: #262D18;
+            background-image: radial-gradient(rgba(59, 73, 34, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-header {
+            background: rgba(247, 245, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .pulse-online {
+            animation: pulse-olive 2.2s infinite;
+        }
+        @keyframes pulse-olive {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(90, 110, 49, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(90, 110, 49, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(90, 110, 49, 0); }
+        }
+        /* Estilização da resposta da IA */
+        .ai-output h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #2E3A19;
+            margin-top: 1.15rem;
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #E2DDD0;
+            padding-bottom: 0.25rem;
+        }
+        .ai-output ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .ai-output li {
+            margin-bottom: 0.3rem;
+        }
+        .ai-output p {
+            margin-bottom: 0.75rem;
+            line-height: 1.65;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-olive-200 selection:text-olive-950">
+
+    <!-- ==================== CABEÇALHO FIXO ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-parchment-200 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logotipo SVG Fiel à Identidade Visual TERRAVIE -->
+                <a href="#" class="flex items-center gap-3 group" aria-label="TERRAVIE Início">
+                    <svg class="w-12 h-12 shrink-0 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="leafGrad" x1="45" y1="20" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#6E883B"/>
+                                <stop offset="100%" stop-color="#2E3A19"/>
+                            </linearGradient>
+                            <linearGradient id="soilGrad" x1="30" y1="88" x2="92" y2="108" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#855830"/>
+                                <stop offset="100%" stop-color="#543419"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Letra T Serifada Clássica -->
+                        <path d="M26 24H82V34C78 29 73 28 65 28H59V84C59 88 60 90 64 91V93H44V91C48 90 49 88 49 84V28H43C35 28 30 29 26 34V24Z" fill="#2E3A19"/>
+                        <!-- Folha Verde Entrelaçada -->
+                        <path d="M53 86C51 64 62 42 84 26C86 48 77 69 53 86Z" fill="url(#leafGrad)"/>
+                        <!-- Nervura central clara da folha -->
+                        <path d="M55 83C62 66 71 49 82 30" stroke="#EFECE4" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Ondas / Raízes Marrom-Terra na Base -->
+                        <path d="M32 95C46 95 57 83 78 83C83 83 88 84 91 85C75 87 63 97 44 98C39 98 35 97 32 95Z" fill="url(#soilGrad)"/>
+                        <path d="M46 104C60 103 71 92 89 92C92 92 94 92 96 93C82 95 72 106 55 106C51 106 48 105 46 104Z" fill="#6B4423"/>
+                    </svg>
+
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-2xl sm:text-[1.65rem] tracking-[0.14em] text-olive-900 leading-none">TERRAVIE</span>
+                        <div class="flex items-center gap-1.5 my-1">
+                            <span class="h-[1px] flex-1 bg-earth-600/40"></span>
+                            <svg class="w-3 h-3 text-olive-700" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7 8 17 8 17 8Z"/>
+                            </svg>
+                            <span class="h-[1px] flex-1 bg-earth-600/40"></span>
+                        </div>
+                        <span class="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] text-earth-700 leading-none">
+                            Especialista em Gramados e Gestão de Jardins
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Links Desktop -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-olive-900/80">
+                    <a href="#como-funciona" class="hover:text-olive-800 transition">Como Funciona</a>
+                    <a href="#profissionais" class="hover:text-olive-800 transition">Rede Homologada</a>
+                    <a href="#segmentos" class="hover:text-olive-800 transition">Segmentos & Paisagismo</a>
+                    <a href="#diagnostico-ia" class="hover:text-olive-800 transition flex items-center gap-1.5 font-semibold text-earth-600">
+                        <i class="fa-solid fa-seedling"></i> Diagnóstico IA
+                    </a>
+                </nav>
+
+                <!-- Botões de Ação -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/5519999999999?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento%20consultivo%20da%20TERRAVIE%20para%20meu%20jardim." target="_blank" rel="noopener"
+                       class="px-4 py-2.5 rounded-xl text-xs font-bold border border-olive-800/30 text-olive-900 hover:bg-olive-100/80 transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-olive-700 text-base"></i>
+                        <span>WhatsApp Direct</span>
+                    </a>
+                    <button onclick="openBookingModal('Diagnóstico Técnico & Gestão', 110)" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-olive-800 text-parchment-50 hover:bg-olive-900 shadow-md transition flex items-center gap-2 cursor-pointer">
+                        <span>Solicitar Jardineiro</span>
+                        <i class="fa-solid fa-arrow-right text-earth-300"></i>
+                    </button>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-olive-900 hover:bg-parchment-200/70 transition" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-parchment-50 border-b border-parchment-200 px-4 pt-2 pb-6 space-y-2.5 shadow-xl">
+            <a href="#como-funciona" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-xl font-medium text-olive-900 hover:bg-olive-100">Como Funciona</a>
+            <a href="#profissionais" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-xl font-medium text-olive-900 hover:bg-olive-100">Profissionais Homologados</a>
+            <a href="#segmentos" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-xl font-medium text-olive-900 hover:bg-olive-100">Segmentos & Paisagismo</a>
+            <a href="#diagnostico-ia" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-xl font-semibold text-earth-600 bg-earth-50">
+                <i class="fa-solid fa-seedling mr-1.5"></i> Diagnóstico Técnico IA
+            </a>
+            <a href="#parceiros" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-xl font-medium text-olive-900 hover:bg-olive-100">Seja Parceiro Terravie</a>
+            <div class="pt-3 border-t border-parchment-200 grid grid-cols-2 gap-3">
+                <a href="https://wa.me/5519999999999" target="_blank" rel="noopener" class="py-3 px-3 rounded-xl text-xs font-bold border border-olive-800 text-olive-900 text-center flex items-center justify-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
+                </a>
+                <button onclick="toggleMobileMenu(); openBookingModal('Manutenção de Gramado', 95)" class="py-3 px-3 rounded-xl text-xs font-bold bg-olive-800 text-parchment-50 text-center">
+                    Chamar Profissional
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 1. HERO SECTION EDITORIAL ==================== -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden">
+        <!-- Detalhes orgânicos sutis no fundo -->
+        <div class="absolute top-24 right-0 -z-10 w-[28rem] h-[28rem] bg-olive-300/25 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-earth-300/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Coluna Esquerda (7 cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-parchment-50 border border-olive-800/20 text-olive-900 text-[11px] font-bold tracking-[0.18em] uppercase shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-olive-600 pulse-online"></span>
+                        <span>Gramados • Jardins • Qualidade de Vida</span>
+                    </div>
+
+                    <h1 class="font-serif font-bold text-3xl sm:text-5xl lg:text-[3.2rem] text-olive-950 leading-[1.16] tracking-tight">
+                        Conectando e Gerenciando Soluções para seu <span class="text-olive-700 italic font-editorial font-bold text-4xl sm:text-6xl">Jardim.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-olive-900/80 max-w-2xl leading-relaxed">
+                        Intermediação confiável do <strong>diagnóstico técnico à execução</strong>. Conectamos você rapidamente a jardineiros técnicos homologados, paisagistas e arquitetos com gestão de qualidade e suporte contínuo — sem dores de cabeça.
+                    </p>
+
+                    <!-- Barra de Busca Sob Demanda (Estilo App) -->
+                    <div class="bg-parchment-50 p-4 sm:p-5 rounded-3xl shadow-xl shadow-olive-950/10 border border-parchment-200 max-w-2xl">
+                        <form onsubmit="handleHeroFilter(event)" class="grid sm:grid-cols-12 gap-3">
+                            <div class="sm:col-span-5">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-earth-600 mb-1 ml-1">Perfil do Imóvel</label>
+                                <select id="hero-segment" class="w-full px-3.5 py-3 rounded-2xl bg-parchment-100 border border-parchment-200 text-xs sm:text-sm font-semibold text-olive-950 focus:outline-none focus:ring-2 focus:ring-olive-700">
+                                    <option value="todos">Todos os Imóveis</option>
+                                    <option value="condominio">Condomínio Fechado</option>
+                                    <option value="comercial">Clínica / Espaço Comercial</option>
+                                    <option value="residencial">Casa em Área Urbana</option>
+                                </select>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-earth-600 mb-1 ml-1">Necessidade</label>
+                                <select id="hero-specialty" class="w-full px-3.5 py-3 rounded-2xl bg-parchment-100 border border-parchment-200 text-xs sm:text-sm font-semibold text-olive-950 focus:outline-none focus:ring-2 focus:ring-olive-700">
+                                    <option value="todos">Qualquer Serviço</option>
+                                    <option value="gramados">Gestão de Gramados</option>
+                                    <option value="manutencao">Manutenção & Poda</option>
+                                    <option value="diagnostico">Diagnóstico & Solo</option>
+                                    <option value="paisagismo">Projeto Paisagístico</option>
+                                </select>
+                            </div>
+
+                            <div class="sm:col-span-3 flex items-end">
+                                <button type="submit" class="w-full py-3 px-4 rounded-2xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer">
+                                    <span>Conectar</span>
+                                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="mt-3.5 pt-3 border-t border-parchment-200 flex flex-wrap items-center justify-between gap-2 text-xs text-olive-900/75">
+                            <span class="font-medium"><i class="fa-solid fa-shield-halved text-olive-700 mr-1"></i> Curadoria técnica rigorosa de profissionais</span>
+                            <button type="button" onclick="openBookingModal('Visita Técnica de Diagnóstico', 120)" class="font-bold text-earth-600 hover:text-earth-800 underline underline-offset-2 cursor-pointer">
+                                Agendar Visita Técnica →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Card Visual Institucional + Selo Terravie (5 cols) -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-[2.25rem] overflow-hidden shadow-2xl border-4 border-parchment-50 aspect-[4/4.4] bg-olive-900">
+                        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=80" 
+                             onerror="this.src='https://placehold.co/800x880/3B4922/EFECE4?text=TERRAVIE+Gramados+%26+Jardins'" 
+                             alt="Gramado residencial impecável gerenciado pela Terravie" class="w-full h-full object-cover opacity-95">
+                        <div class="absolute inset-0 bg-gradient-to-t from-olive-950/90 via-olive-950/20 to-transparent"></div>
+
+                        <!-- Selo Superior: Curadoria Terravie -->
+                        <div class="absolute top-5 left-5 right-5 bg-parchment-50/95 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-parchment-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-olive-800 text-parchment-50 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-award text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-olive-950">Profissionais Homologados & Curados</p>
+                                    <p class="text-[11px] text-earth-700">Conhecimento em Botânica, Solos e Gramados</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-olive-100 text-olive-800 text-[10px] font-bold uppercase tracking-wider shrink-0">
+                                100% Verificado
+                            </span>
+                        </div>
+
+                        <!-- Rodapé da Imagem: Assinatura da Marca -->
+                        <div class="absolute bottom-6 left-6 right-6 text-parchment-50">
+                            <div class="flex items-center gap-2 text-earth-300 text-xs font-bold uppercase tracking-widest mb-1.5">
+                                <i class="fa-solid fa-leaf"></i>
+                                <span>Suporte Técnico Contínuo</span>
+                            </div>
+                            <p class="font-editorial italic text-2xl sm:text-3xl text-white leading-snug">
+                                “Seu jardim em boas mãos.”
+                            </p>
+                            <p class="text-xs text-parchment-200 mt-1.5">
+                                Economia de tempo ao conectar você com o especialista certo para cada necessidade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 2. REDE DE JARDINEIROS HOMOLOGADOS (CONEXÃO SOB DEMANDA) ==================== -->
+    <section id="profissionais" class="py-20 bg-parchment-50 border-y border-parchment-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-earth-600">Conexão Imediata • Curadoria Terravie</span>
+                    <h2 class="font-serif font-bold text-2xl sm:text-4xl text-olive-950 mt-2">
+                        Jardineiros Técnicos Disponíveis
+                    </h2>
+                    <p class="text-sm text-olive-900/75 mt-2 max-w-2xl">
+                        Selecione a especialidade ou o tipo do seu imóvel para encontrar profissionais homologados prontos para atender hoje ou mediante agendamento.
+                    </p>
+                </div>
+
+                <!-- Status Radar -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-olive-800 text-parchment-50 text-xs font-semibold shadow-sm self-start lg:self-auto">
+                    <span class="w-2.5 h-2.5 rounded-full bg-lime-400 pulse-online"></span>
+                    <span>Rede ativa • Atendimento consultivo e próximo</span>
+                </div>
+            </div>
+
+            <!-- Barra de Filtros por Especialidade -->
+            <div class="flex flex-wrap items-center gap-2 mb-8 pb-6 border-b border-parchment-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-earth-700 mr-2">Especialidade:</span>
+                <button onclick="setSpecialtyFilter('todos')" class="spec-btn px-4 py-2 rounded-xl text-xs font-bold bg-olive-800 text-parchment-50 transition cursor-pointer" data-spec="todos">
+                    Todos (6)
+                </button>
+                <button onclick="setSpecialtyFilter('gramados')" class="spec-btn px-4 py-2 rounded-xl text-xs font-semibold bg-parchment-100 text-olive-900 hover:bg-olive-200/70 transition cursor-pointer" data-spec="gramados">
+                    🌱 Gestão de Gramados
+                </button>
+                <button onclick="setSpecialtyFilter('manutencao')" class="spec-btn px-4 py-2 rounded-xl text-xs font-semibold bg-parchment-100 text-olive-900 hover:bg-olive-200/70 transition cursor-pointer" data-spec="manutencao">
+                    ✂️ Manutenção & Poda
+                </button>
+                <button onclick="setSpecialtyFilter('diagnostico')" class="spec-btn px-4 py-2 rounded-xl text-xs font-semibold bg-parchment-100 text-olive-900 hover:bg-olive-200/70 transition cursor-pointer" data-spec="diagnostico">
+                    🔬 Diagnóstico & Solos
+                </button>
+                <button onclick="setSpecialtyFilter('paisagismo')" class="spec-btn px-4 py-2 rounded-xl text-xs font-semibold bg-parchment-100 text-olive-900 hover:bg-olive-200/70 transition cursor-pointer" data-spec="paisagismo">
+                    🏡 Paisagismo
+                </button>
+            </div>
+
+            <!-- Grid de Profissionais Homologados -->
+            <div id="pros-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Profissional 1 -->
+                <div class="pro-card bg-white rounded-3xl p-6 border border-parchment-200 shadow-sm hover:shadow-xl hover:border-olive-600/50 transition flex flex-col justify-between" data-spec="gramados" data-segment="condominio">
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3.5">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80" onerror="this.src='https://placehold.co/160x160/3B4922/EFECE4?text=RM'" alt="Ricardo Moura" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-olive-700/30">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <h3 class="font-bold text-base text-olive-950">Ricardo Moura</h3>
+                                        <i class="fa-solid fa-circle-check text-olive-600 text-xs" title="Homologado Terravie"></i>
+                                    </div>
+                                    <p class="text-xs font-semibold text-earth-600">Especialista em Gramados</p>
+                                    <span class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-star"></i> 4.98 <span class="text-stone-400 font-normal">(142 atendimentos)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-olive-50 text-olive-800 text-[11px] font-bold mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-olive-600"></span>
+                            <span>Disponível hoje • a 2,1 km</span>
+                        </div>
+
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">
+                            Corte técnico helicoidal e rotativo, nivelamento de gramados Esmeralda e São Carlos, controle de pragas e adubação sazonal para residências e condomínios.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Condomínios Fechados</span>
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Equipamento Próprio</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-parchment-200 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider text-stone-400 font-bold">Taxa Base</span>
+                            <span class="font-serif font-bold text-lg text-olive-950">R$ 95<span class="text-xs font-sans font-normal text-stone-500">/visita</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Gestão & Corte de Gramado', 95, 'Ricardo Moura')" class="px-4 py-2.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs transition cursor-pointer">
+                            Chamar Profissional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profissional 2 -->
+                <div class="pro-card bg-white rounded-3xl p-6 border border-parchment-200 shadow-sm hover:shadow-xl hover:border-olive-600/50 transition flex flex-col justify-between" data-spec="diagnostico" data-segment="condominio">
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3.5">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" onerror="this.src='https://placehold.co/160x160/6B4423/EFECE4?text=CA'" alt="Dra. Camila Andrade" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-earth-600/30">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <h3 class="font-bold text-base text-olive-950">Camila Andrade</h3>
+                                        <i class="fa-solid fa-circle-check text-olive-600 text-xs" title="Homologado Terravie"></i>
+                                    </div>
+                                    <p class="text-xs font-semibold text-earth-600">Eng. Agrônoma • Solos & Botânica</p>
+                                    <span class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-star"></i> 5.00 <span class="text-stone-400 font-normal">(89 diagnósticos)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-earth-50 text-earth-700 text-[11px] font-bold mb-4">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Agenda hoje à tarde • a 3,4 km</span>
+                        </div>
+
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">
+                            Diagnóstico técnico de jardins debilitados, correção de pH do solo, recuperação de gramados amarelados e plano fitossanitário preventivo.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Laudo Técnico</span>
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Condomínios & Casas</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-parchment-200 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider text-stone-400 font-bold">Visita Técnica</span>
+                            <span class="font-serif font-bold text-lg text-olive-950">R$ 130<span class="text-xs font-sans font-normal text-stone-500">/diagnóstico</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Diagnóstico Técnico de Solo & Botânica', 130, 'Camila Andrade')" class="px-4 py-2.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs transition cursor-pointer">
+                            Chamar Profissional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profissional 3 -->
+                <div class="pro-card bg-white rounded-3xl p-6 border border-parchment-200 shadow-sm hover:shadow-xl hover:border-olive-600/50 transition flex flex-col justify-between" data-spec="manutencao" data-segment="comercial">
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3.5">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" onerror="this.src='https://placehold.co/160x160/5A6E31/EFECE4?text=HS'" alt="Henrique Souza" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-olive-700/30">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <h3 class="font-bold text-base text-olive-950">Henrique Souza</h3>
+                                        <i class="fa-solid fa-circle-check text-olive-600 text-xs" title="Homologado Terravie"></i>
+                                    </div>
+                                    <p class="text-xs font-semibold text-earth-600">Manutenção & Poda Ornamental</p>
+                                    <span class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-star"></i> 4.92 <span class="text-stone-400 font-normal">(210 atendimentos)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-olive-50 text-olive-800 text-[11px] font-bold mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-olive-600"></span>
+                            <span>Disponível agora • a 1,6 km</span>
+                        </div>
+
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">
+                            Poda de cercas-vivas, arbustos ornamentais, limpeza de canteiros e manutenção recorrente de fachadas de clínicas, lojas e escritórios.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Clínicas & Lojas</span>
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Limpeza Inclusa</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-parchment-200 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider text-stone-400 font-bold">Taxa Base</span>
+                            <span class="font-serif font-bold text-lg text-olive-950">R$ 90<span class="text-xs font-sans font-normal text-stone-500">/visita</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Manutenção & Poda Ornamental', 90, 'Henrique Souza')" class="px-4 py-2.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs transition cursor-pointer">
+                            Chamar Profissional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profissional 4 -->
+                <div class="pro-card bg-white rounded-3xl p-6 border border-parchment-200 shadow-sm hover:shadow-xl hover:border-olive-600/50 transition flex flex-col justify-between" data-spec="paisagismo" data-segment="condominio">
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3.5">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" onerror="this.src='https://placehold.co/160x160/6B4423/EFECE4?text=BL'" alt="Beatriz Lemos" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-earth-600/30">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <h3 class="font-bold text-base text-olive-950">Beatriz Lemos</h3>
+                                        <i class="fa-solid fa-circle-check text-olive-600 text-xs" title="Homologado Terravie"></i>
+                                    </div>
+                                    <p class="text-xs font-semibold text-earth-600">Arquiteta Paisagista</p>
+                                    <span class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-star"></i> 4.99 <span class="text-stone-400 font-normal">(64 projetos)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-earth-50 text-earth-700 text-[11px] font-bold mb-4">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                            <span>Projetos & Implantação • a 4,0 km</span>
+                        </div>
+
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">
+                            Criação de projetos paisagísticos autorais, escolha de espécies junto a viveiros parceiros e acompanhamento completo da implantação.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Projeto 3D + Execução</span>
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Residências & Clínicas</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-parchment-200 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider text-stone-400 font-bold">Consultoria Inicial</span>
+                            <span class="font-serif font-bold text-lg text-olive-950">R$ 150<span class="text-xs font-sans font-normal text-stone-500">/projeto</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Consultoria de Projeto Paisagístico', 150, 'Beatriz Lemos')" class="px-4 py-2.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs transition cursor-pointer">
+                            Chamar Profissional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profissional 5 -->
+                <div class="pro-card bg-white rounded-3xl p-6 border border-parchment-200 shadow-sm hover:shadow-xl hover:border-olive-600/50 transition flex flex-col justify-between" data-spec="gramados" data-segment="residencial">
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3.5">
+                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=160&q=80" onerror="this.src='https://placehold.co/160x160/3B4922/EFECE4?text=GF'" alt="Gabriel Ferreira" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-olive-700/30">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <h3 class="font-bold text-base text-olive-950">Gabriel Ferreira</h3>
+                                        <i class="fa-solid fa-circle-check text-olive-600 text-xs" title="Homologado Terravie"></i>
+                                    </div>
+                                    <p class="text-xs font-semibold text-earth-600">Corte de Grama & Limpeza Rápida</p>
+                                    <span class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-star"></i> 4.91 <span class="text-stone-400 font-normal">(178 atendimentos)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-olive-50 text-olive-800 text-[11px] font-bold mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-olive-600"></span>
+                            <span>Disponível agora • a 1,2 km</span>
+                        </div>
+
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">
+                            Atendimento ágil para quintais urbanos, corte de grama, roçagem de bordas, recolhimento de folhas e limpeza pós-obra em áreas externas.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Residências Urbanas</span>
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Chegada em 30 min</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-parchment-200 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider text-stone-400 font-bold">Taxa Base</span>
+                            <span class="font-serif font-bold text-lg text-olive-950">R$ 85<span class="text-xs font-sans font-normal text-stone-500">/visita</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Corte de Grama & Limpeza Urbana', 85, 'Gabriel Ferreira')" class="px-4 py-2.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs transition cursor-pointer">
+                            Chamar Profissional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profissional 6 -->
+                <div class="pro-card bg-white rounded-3xl p-6 border border-parchment-200 shadow-sm hover:shadow-xl hover:border-olive-600/50 transition flex flex-col justify-between" data-spec="manutencao" data-segment="residencial">
+                    <div>
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-3.5">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80" onerror="this.src='https://placehold.co/160x160/5A6E31/EFECE4?text=MC'" alt="Mariana Campos" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-olive-700/30">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <h3 class="font-bold text-base text-olive-950">Mariana Campos</h3>
+                                        <i class="fa-solid fa-circle-check text-olive-600 text-xs" title="Homologado Terravie"></i>
+                                    </div>
+                                    <p class="text-xs font-semibold text-earth-600">Vasos, Varandas & Jardins Verticais</p>
+                                    <span class="text-xs text-amber-600 font-bold"><i class="fa-solid fa-star"></i> 4.97 <span class="text-stone-400 font-normal">(115 atendimentos)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-olive-50 text-olive-800 text-[11px] font-bold mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-olive-600"></span>
+                            <span>Disponível hoje • a 2,7 km</span>
+                        </div>
+
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">
+                            Troca de substrato, replantio em vasos decorativos, controle orgânico de cochonilhas e manutenção de jardins internos e recepções de clínicas.
+                        </p>
+
+                        <div class="flex flex-wrap gap-1.5 mb-5">
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Interno & Varandas</span>
+                            <span class="px-2.5 py-1 rounded-md bg-parchment-100 text-olive-900 text-[10px] font-semibold">Insumos Inclusos</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-parchment-200 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider text-stone-400 font-bold">Taxa Base</span>
+                            <span class="font-serif font-bold text-lg text-olive-950">R$ 95<span class="text-xs font-sans font-normal text-stone-500">/visita</span></span>
+                        </div>
+                        <button onclick="openBookingModal('Manutenção de Vasos & Jardim Interno', 95, 'Mariana Campos')" class="px-4 py-2.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs transition cursor-pointer">
+                            Chamar Profissional
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. COMO A TERRAVIE FUNCIONA (DO DIAGNÓSTICO À EXECUÇÃO) ==================== -->
+    <section id="como-funciona" class="py-20 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-earth-600">Metodologia Terravie</span>
+                <h2 class="font-serif font-bold text-3xl sm:text-4xl text-olive-950 mt-2">
+                    Do Diagnóstico Técnico à Execução
+                </h2>
+                <p class="text-sm sm:text-base text-olive-900/75 mt-3">
+                    Não somos apenas um classificado de jardineiros. A Terravie gerencia cada etapa para garantir padrão técnico, pontualidade e saúde duradoura para o seu jardim.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pilar 1 -->
+                <div class="bg-parchment-50 rounded-[2rem] p-8 border border-parchment-200 shadow-sm relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-olive-800 text-parchment-50 flex items-center justify-center font-serif font-bold text-xl mb-6 shadow">
+                        I
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-olive-950 mb-3">Diagnóstico Técnico de Jardins</h3>
+                    <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
+                        Avaliamos as condições reais de insolação, solo, drenagem e espécie do gramado — presencialmente ou via nosso pré-diagnóstico com IA — antes de indicar a solução.
+                    </p>
+                    <span class="text-[11px] font-bold text-earth-600 uppercase tracking-wider">Conhecimento em Botânica & Solos</span>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="bg-parchment-50 rounded-[2rem] p-8 border border-parchment-200 shadow-sm relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-earth-600 text-parchment-50 flex items-center justify-center font-serif font-bold text-xl mb-6 shadow">
+                        II
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-olive-950 mb-3">Curadoria de Rede Homologada</h3>
+                    <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
+                        Conectamos você rapidamente ao jardineiro autônomo ou paisagista mais qualificado e próximo, homologado pelo nosso banco de dados técnico e com fornecedores locais integrados.
+                    </p>
+                    <span class="text-[11px] font-bold text-olive-700 uppercase tracking-wider">Economia de Tempo & Segurança</span>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="bg-parchment-50 rounded-[2rem] p-8 border border-parchment-200 shadow-sm relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-olive-800 text-parchment-50 flex items-center justify-center font-serif font-bold text-xl mb-6 shadow">
+                        III
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-olive-950 mb-3">Gestão de Qualidade & Suporte</h3>
+                    <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
+                        Acompanhamos o agendamento, validamos a execução do serviço e oferecemos suporte técnico contínuo para manter seu gramado sempre verde e bem cuidado.
+                    </p>
+                    <span class="text-[11px] font-bold text-earth-600 uppercase tracking-wider">Atendimento Consultivo e Próximo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. SEGMENTOS DE CLIENTES & PAISAGISMO PERSONALIZADO ==================== -->
+    <section id="segmentos" class="py-20 bg-olive-900 text-parchment-50 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-earth-300">Soluções por Perfil • Paisagismo & Gestão</span>
+                    <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-2">
+                        Atendimento Especializado para Cada Espaço
+                    </h2>
+                </div>
+                <p class="text-xs sm:text-sm text-parchment-200 max-w-md">
+                    De manutenções pontuais a projetos paisagísticos completos em parceria com arquitetos e viveiros locais.
+                </p>
+            </div>
+
+            <!-- Cards dos 3 Segmentos do Business Model Canvas -->
+            <div class="grid lg:grid-cols-3 gap-7 mb-14">
+                <!-- Segmento 1: Condomínios Fechados -->
+                <div class="bg-olive-800/80 border border-olive-700 rounded-[2rem] p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-parchment-100 text-olive-900 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-white mb-2">Casas em Condomínios Fechados</h3>
+                        <p class="text-xs text-parchment-200 leading-relaxed mb-5">
+                            Gestão recorrente de gramados amplos, poda de arbustos ornamentais, adubação programada e controle preventivo de pragas com profissionais homologados para acesso ao condomínio.
+                        </p>
+                        <ul class="space-y-2 text-xs text-parchment-100 mb-6">
+                            <li><i class="fa-solid fa-check text-earth-300 mr-2"></i> Cronograma quinzenal ou mensal fixo</li>
+                            <li><i class="fa-solid fa-check text-earth-300 mr-2"></i> Relatório técnico de saúde do gramado</li>
+                            <li><i class="fa-solid fa-check text-earth-300 mr-2"></i> Profissionais cadastrados e identificados</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Plano Condomínio Fechado', 140)" class="w-full py-3 rounded-xl bg-parchment-100 hover:bg-white text-olive-950 font-bold text-xs transition cursor-pointer">
+                        Solicitar Gestão para Condomínio
+                    </button>
+                </div>
+
+                <!-- Segmento 2: Espaços Comerciais -->
+                <div class="bg-earth-700/90 border border-earth-500/50 rounded-[2rem] p-7 flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-parchment-100 text-earth-700 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <span class="inline-block px-2.5 py-0.5 rounded-full bg-earth-800 text-earth-200 text-[10px] font-bold uppercase tracking-wider mb-2">Imagem Corporativa</span>
+                        <h3 class="font-serif font-bold text-xl text-white mb-2">Espaços Comerciais (Clínicas & Lojas)</h3>
+                        <p class="text-xs text-parchment-100 leading-relaxed mb-5">
+                            Jardins de recepção, fachadas e áreas internas sempre impecáveis para encantar seus pacientes e clientes, com atendimento em horários flexíveis sem atrapalhar o expediente.
+                        </p>
+                        <ul class="space-y-2 text-xs text-parchment-50 mb-6">
+                            <li><i class="fa-solid fa-check text-earth-200 mr-2"></i> Manutenção de vasos internos e jardins verticais</li>
+                            <li><i class="fa-solid fa-check text-earth-200 mr-2"></i> Reposição rápida de mudas e insumos</li>
+                            <li><i class="fa-solid fa-check text-earth-200 mr-2"></i> Nota fiscal e gestão centralizada</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Gestão Comercial (Clínica/Loja)', 125)" class="w-full py-3 rounded-xl bg-olive-950 hover:bg-black text-parchment-50 font-bold text-xs transition cursor-pointer">
+                        Solicitar para Espaço Comercial
+                    </button>
+                </div>
+
+                <!-- Segmento 3: Residências Urbanas -->
+                <div class="bg-olive-800/80 border border-olive-700 rounded-[2rem] p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-parchment-100 text-olive-900 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-tree-city"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-xl text-white mb-2">Residências em Áreas Urbanas</h3>
+                        <p class="text-xs text-parchment-200 leading-relaxed mb-5">
+                            Chamados rápidos para corte de grama, revitalização de quintais, limpeza pós-chuva ou criação de um cantinho verde na varanda com execução limpa e preço justo.
+                        </p>
+                        <ul class="space-y-2 text-xs text-parchment-100 mb-6">
+                            <li><i class="fa-solid fa-check text-earth-300 mr-2"></i> Atendimento sob demanda no mesmo dia</li>
+                            <li><i class="fa-solid fa-check text-earth-300 mr-2"></i> Ensacamento de resíduos verdes incluso</li>
+                            <li><i class="fa-solid fa-check text-earth-300 mr-2"></i> Projetos paisagísticos sob medida</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Atendimento Residencial Urbano', 90)" class="w-full py-3 rounded-xl bg-parchment-100 hover:bg-white text-olive-950 font-bold text-xs transition cursor-pointer">
+                        Agendar Serviço Residencial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Banner Horizontal: Projetos Paisagísticos Personalizados -->
+            <div class="bg-parchment-100 text-olive-950 rounded-[2rem] p-6 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 border border-parchment-300">
+                <div class="space-y-2 max-w-2xl">
+                    <span class="text-xs font-bold uppercase tracking-widest text-earth-600">Parceria com Arquitetos & Viveiros Locais</span>
+                    <h3 class="font-serif font-bold text-2xl sm:text-3xl text-olive-950">Projetos Paisagísticos Personalizados</h3>
+                    <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        Quer transformar um terreno vazio, fachada ou área gourmet? Desenvolvemos o projeto botânico completo, fornecemos mudas selecionadas direto de viveiros parceiros e gerenciamos toda a implantação.
+                    </p>
+                </div>
+                <button onclick="openBookingModal('Projeto Paisagístico Personalizado', 180)" class="shrink-0 px-7 py-4 rounded-2xl bg-earth-600 hover:bg-earth-700 text-parchment-50 font-bold text-xs sm:text-sm shadow-lg transition flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                    <span>Orçar Projeto Paisagístico</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. DIAGNÓSTICO BOTÂNICO COM IA (TERRAVIE AI) ==================== -->
+    <section id="diagnostico-ia" class="py-20 scroll-mt-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-parchment-50 rounded-[2.5rem] p-6 sm:p-12 border border-parchment-300 shadow-2xl">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive-100 text-olive-900 text-xs font-bold border border-olive-800/15 mb-3">
+                        <i class="fa-solid fa-microscope text-earth-600"></i>
+                        <span>Consultoria Técnica Inteligente • Terravie AI</span>
+                    </div>
+                    <h2 class="font-serif font-bold text-3xl sm:text-4xl text-olive-950">
+                        Pré-Diagnóstico Botânico & Paisagístico
+                    </h2>
+                    <p class="text-xs sm:text-sm text-stone-600 mt-2.5 leading-relaxed">
+                        Descreva a situação do seu gramado, jardim ou espaço comercial. Nossa inteligência artificial (treinada com parâmetros de botânica e solos da Terravie) analisa seu caso na hora e indica o tratamento e o profissional ideal.
+                    </p>
+                </div>
+
+                <!-- Prompts de Exemplo -->
+                <div class="flex flex-wrap justify-center gap-2 mb-5">
+                    <button type="button" onclick="setAiPrompt('Moro em condomínio fechado e meu gramado Esmeralda está com manchas amareladas e partes secas onde bate sol o dia todo.')" class="text-xs px-3.5 py-1.5 rounded-full bg-white hover:bg-olive-100 text-olive-900 border border-parchment-200 transition cursor-pointer">
+                        🌿 Gramado Esmeralda com manchas amarelas
+                    </button>
+                    <button type="button" onclick="setAiPrompt('Tenho uma clínica odontológica e quero montar um jardim de entrada elegante de baixa manutenção com sombra parcial.')" class="text-xs px-3.5 py-1.5 rounded-full bg-white hover:bg-olive-100 text-olive-900 border border-parchment-200 transition cursor-pointer">
+                        🏥 Fachada de clínica com meia-sombra
+                    </button>
+                    <button type="button" onclick="setAiPrompt('Quintal urbano de 40m² com terra compactada e mato alto. Quero revitalizar e plantar grama nova.')" class="text-xs px-3.5 py-1.5 rounded-full bg-white hover:bg-olive-100 text-olive-900 border border-parchment-200 transition cursor-pointer">
+                        🏡 Revitalização de quintal e plantio de grama
+                    </button>
+                </div>
+
+                <!-- Caixa de Entrada -->
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-md border border-parchment-200">
+                    <textarea id="ai-input" rows="3" placeholder="Descreva aqui o tipo de imóvel (casa, condomínio, clínica), nível de sol, tamanho aproximado ou problema no gramado/plantas..."
+                        class="w-full p-2 text-sm text-olive-950 placeholder-stone-400 focus:outline-none resize-none"></textarea>
+                    
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-parchment-100">
+                        <span class="text-xs text-earth-700 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-leaf text-olive-600"></i> Baseado em Conhecimento Técnico (Botânica & Solos)
+                        </span>
+                        <button id="ai-btn" onclick="runTerravieAI()" class="px-6 py-3 rounded-2xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-wand-magic-sparkles text-earth-300"></i>
+                            <span>Gerar Pré-Diagnóstico Técnico</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loading -->
+                <div id="ai-loading" class="hidden py-10 text-center">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-olive-100 text-olive-800 mb-3 animate-pulse">
+                        <i class="fa-solid fa-seedling text-xl"></i>
+                    </div>
+                    <p class="font-serif font-bold text-base text-olive-950">Elaborando Pré-Diagnóstico Técnico Terravie...</p>
+                    <p class="text-xs text-stone-500 mt-1">Analisando condições de solo, insolação e curadoria de serviços.</p>
+                </div>
+
+                <!-- Resultado da IA -->
+                <div id="ai-result" class="hidden mt-8 bg-white rounded-3xl p-6 sm:p-8 border border-olive-700/30 shadow-lg">
+                    <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-parchment-200">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-olive-800 text-parchment-50 flex items-center justify-center">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif font-bold text-base text-olive-950">Relatório Preliminar • TERRAVIE</h3>
+                                <p class="text-[11px] text-earth-600 font-semibold">Orientação técnica para seu espaço</p>
+                            </div>
+                        </div>
+                        <button onclick="copyDiagnostic()" class="px-3 py-1.5 rounded-xl bg-parchment-100 hover:bg-parchment-200 text-olive-900 text-xs font-semibold transition cursor-pointer">
+                            <i class="fa-regular fa-copy mr-1"></i> Copiar Laudo
+                        </button>
+                    </div>
+
+                    <div id="ai-text-container" class="ai-output text-sm text-stone-700"></div>
+
+                    <!-- CTA Pós-Diagnóstico -->
+                    <div class="mt-6 pt-5 border-t border-parchment-200 flex flex-col sm:flex-row items-center justify-between gap-4 bg-parchment-100 p-4 rounded-2xl">
+                        <p class="text-xs font-semibold text-olive-950">
+                            Deseja que um profissional homologado da Terravie execute este plano no seu jardim?
+                        </p>
+                        <button onclick="openBookingModal('Execução de Plano Técnico (Diagnóstico IA)', 115)" class="shrink-0 px-5 py-2.5 rounded-xl bg-earth-600 hover:bg-earth-700 text-parchment-50 font-bold text-xs shadow transition cursor-pointer">
+                            Conectar Profissional Agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. PORTAL DE PARCEIROS (JARDINEIROS, PAISAGISTAS E VIVEIROS) ==================== -->
+    <section id="parceiros" class="py-20 bg-parchment-50 border-t border-parchment-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-olive-950 rounded-[2.5rem] overflow-hidden shadow-2xl grid lg:grid-cols-12">
+                <div class="lg:col-span-7 p-8 sm:p-12 lg:p-14 text-parchment-50 flex flex-col justify-center">
+                    <span class="inline-block w-fit px-3.5 py-1 rounded-full bg-earth-600/30 text-earth-300 border border-earth-500/40 text-[11px] font-bold uppercase tracking-widest mb-4">
+                        Parcerias Principais • Ecossistema Terravie
+                    </span>
+                    <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white leading-tight mb-4">
+                        Faça parte da nossa rede de profissionais e fornecedores homologados.
+                    </h2>
+                    <p class="text-sm sm:text-base text-parchment-200 leading-relaxed mb-8">
+                        Aumente sua visibilidade e suas vendas sem precisar investir sozinho em marketing. Conectamos jardineiros autônomos, arquitetos paisagistas e viveiros de insumos a clientes qualificados.
+                    </p>
+
+                    <div class="grid sm:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-olive-900/90 p-4 rounded-2xl border border-olive-800">
+                            <i class="fa-solid fa-user-check text-earth-300 text-lg mb-2"></i>
+                            <h4 class="font-bold text-xs text-white">Jardineiros Técnicos</h4>
+                            <p class="text-[11px] text-parchment-300 mt-1">Receba chamados próximos e suporte técnico da nossa equipe.</p>
+                        </div>
+                        <div class="bg-olive-900/90 p-4 rounded-2xl border border-olive-800">
+                            <i class="fa-solid fa-compass-drafting text-earth-300 text-lg mb-2"></i>
+                            <h4 class="font-bold text-xs text-white">Paisagistas & Arquitetos</h4>
+                            <p class="text-[11px] text-parchment-300 mt-1">Assine projetos residenciais e comerciais com gestão Terravie.</p>
+                        </div>
+                        <div class="bg-olive-900/90 p-4 rounded-2xl border border-olive-800">
+                            <i class="fa-solid fa-store text-earth-300 text-lg mb-2"></i>
+                            <h4 class="font-bold text-xs text-white">Viveiros & Insumos</h4>
+                            <p class="text-[11px] text-parchment-300 mt-1">Forneça mudas, gramas e adubos para nossas execuções locais.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button onclick="openPartnerModal()" class="px-7 py-4 rounded-2xl bg-earth-600 hover:bg-earth-500 text-parchment-50 font-bold text-xs sm:text-sm shadow-lg transition flex items-center gap-2 cursor-pointer">
+                            <span>Solicitar Homologação de Parceiro</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <span class="text-xs text-parchment-300">Curadoria técnica • Parceria local</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative min-h-[280px]">
+                    <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/700x800/2E3A19/EFECE4?text=Parceiro+TERRAVIE'" 
+                         alt="Profissional de jardinagem homologado Terravie" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-olive-950 via-transparent to-transparent lg:bg-gradient-to-r lg:from-olive-950 lg:via-transparent lg:to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. RODAPÉ INSTITUCIONAL ==================== -->
+    <footer class="bg-olive-950 text-parchment-200 pt-16 pb-10 border-t border-olive-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-olive-900">
+                <!-- Coluna Marca -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-10 h-10 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M26 24H82V34C78 29 73 28 65 28H59V84C59 88 60 90 64 91V93H44V91C48 90 49 88 49 84V28H43C35 28 30 29 26 34V24Z" fill="#EFECE4"/>
+                            <path d="M53 86C51 64 62 42 84 26C86 48 77 69 53 86Z" fill="#8BA468"/>
+                            <path d="M32 95C46 95 57 83 78 83C83 83 88 84 91 85C75 87 63 97 44 98C39 98 35 97 32 95Z" fill="#B58258"/>
+                            <path d="M46 104C60 103 71 92 89 92C92 92 94 92 96 93C82 95 72 106 55 106C51 106 48 105 46 104Z" fill="#855830"/>
+                        </svg>
+                        <div>
+                            <span class="font-serif font-bold text-xl tracking-[0.14em] text-white block leading-none">TERRAVIE</span>
+                            <span class="text-[9px] uppercase tracking-widest text-earth-300">Gramados & Gestão de Jardins</span>
+                        </div>
+                    </div>
+                    <p class="font-editorial italic text-xl text-white">“Seu jardim em boas mãos.”</p>
+                    <p class="text-xs text-parchment-300 leading-relaxed">
+                        Conectando e gerenciando soluções completas para gramados, jardins residenciais, condomínios e espaços comerciais.
+                    </p>
+                </div>
+
+                <!-- Soluções -->
+                <div>
+                    <h4 class="font-serif font-bold text-xs uppercase tracking-widest text-white mb-4">Soluções</h4>
+                    <ul class="space-y-2.5 text-xs text-parchment-300">
+                        <li><a href="#profissionais" class="hover:text-white transition">Jardineiros Técnicos Sob Demanda</a></li>
+                        <li><a href="#como-funciona" class="hover:text-white transition">Diagnóstico Técnico de Solos</a></li>
+                        <li><a href="#segmentos" class="hover:text-white transition">Gestão para Condomínios Fechados</a></li>
+                        <li><a href="#segmentos" class="hover:text-white transition">Projetos Paisagísticos Sob Medida</a></li>
+                        <li><a href="#diagnostico-ia" class="hover:text-white transition">Consultoria Botânica IA</a></li>
+                    </ul>
+                </div>
+
+                <!-- Ecossistema -->
+                <div>
+                    <h4 class="font-serif font-bold text-xs uppercase tracking-widest text-white mb-4">Ecossistema</h4>
+                    <ul class="space-y-2.5 text-xs text-parchment-300">
+                        <li><a href="#parceiros" class="hover:text-white transition">Homologação de Jardineiros</a></li>
+                        <li><a href="#parceiros" class="hover:text-white transition">Parceria para Paisagistas e Arquitetos</a></li>
+                        <li><a href="#parceiros" class="hover:text-white transition">Viveiros e Fornecedores de Insumos</a></li>
+                        <li><a href="#segmentos" class="hover:text-white transition">Atendimento para Síndicos e Clínicas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Canais -->
+                <div>
+                    <h4 class="font-serif font-bold text-xs uppercase tracking-widest text-white mb-4">Canais de Atendimento</h4>
+                    <p class="text-xs text-parchment-300 mb-2"><i class="fa-brands fa-whatsapp text-earth-300 mr-1.5"></i> WhatsApp Direct para Orçamentos</p>
+                    <p class="text-xs text-parchment-300 mb-4"><i class="fa-solid fa-envelope text-earth-300 mr-1.5"></i> contato@terravie.com.br</p>
+                    <div class="flex gap-3">
+                        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-olive-900 hover:bg-olive-800 flex items-center justify-center text-parchment-100 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest" class="w-9 h-9 rounded-xl bg-olive-900 hover:bg-olive-800 flex items-center justify-center text-parchment-100 transition"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="https://wa.me/5519999999999" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-9 h-9 rounded-xl bg-olive-900 hover:bg-olive-800 flex items-center justify-center text-parchment-100 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-parchment-300/80 tracking-wider uppercase">
+                <p>TERRAVIE • GRAMADOS • JARDINS • QUALIDADE DE VIDA</p>
+                <p>© 2026 Terravie Gestão de Jardins. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL 1: AGENDAMENTO / CHAMADO COM CÁLCULO POR M² E WHATSAPP ==================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-olive-950/75 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-parchment-50 rounded-[2rem] max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-parchment-300 relative my-auto">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-parchment-200 hover:bg-parchment-300 text-olive-950 flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="text-[11px] font-bold uppercase tracking-widest text-earth-600">Intermediação Confiável Terravie</span>
+            <h3 class="font-serif font-bold text-2xl text-olive-950 mt-1">Solicitar Atendimento</h3>
+            <p id="booking-pro-info" class="text-xs text-stone-600 mt-1 mb-5">Conectando você ao especialista homologado ideal.</p>
+
+            <form id="booking-form" onsubmit="confirmBooking(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-olive-950 mb-1">Tipo de Serviço</label>
+                    <select id="booking-service" onchange="updateBookingEstimate()" class="w-full px-4 py-3 rounded-xl bg-white border border-parchment-200 text-xs sm:text-sm font-semibold text-olive-950">
+                        <option value="85">Corte de Grama & Limpeza Urbana (Base R$ 85)</option>
+                        <option value="95">Gestão & Corte de Gramado Residencial (Base R$ 95)</option>
+                        <option value="90">Manutenção & Poda Ornamental (Base R$ 90)</option>
+                        <option value="130">Diagnóstico Técnico de Solo & Botânica (Base R$ 130)</option>
+                        <option value="150">Consultoria de Projeto Paisagístico (Base R$ 150)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-olive-950 mb-1">Área aproximada do gramado / jardim</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="area-size" value="1" checked onchange="updateBookingEstimate()" class="peer sr-only">
+                            <div class="p-2.5 text-center rounded-xl bg-white border border-parchment-200 peer-checked:border-olive-800 peer-checked:bg-olive-100/70 text-xs font-bold text-olive-950">
+                                Até 40 m²<br><span class="text-[10px] font-normal text-stone-500">Compacto</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="area-size" value="1.45" onchange="updateBookingEstimate()" class="peer sr-only">
+                            <div class="p-2.5 text-center rounded-xl bg-white border border-parchment-200 peer-checked:border-olive-800 peer-checked:bg-olive-100/70 text-xs font-bold text-olive-950">
+                                40 a 120 m²<br><span class="text-[10px] font-normal text-stone-500">Médio</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="area-size" value="2.1" onchange="updateBookingEstimate()" class="peer sr-only">
+                            <div class="p-2.5 text-center rounded-xl bg-white border border-parchment-200 peer-checked:border-olive-800 peer-checked:bg-olive-100/70 text-xs font-bold text-olive-950">
+                                +120 m²<br><span class="text-[10px] font-normal text-stone-500">Amplo / Cond.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-olive-950 mb-1">Perfil do Imóvel</label>
+                        <select id="booking-segment" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs font-medium">
+                            <option value="Casa em Condomínio Fechado">Condomínio Fechado</option>
+                            <option value="Espaço Comercial (Clínica/Loja)">Clínica / Loja</option>
+                            <option value="Residência Urbana">Residência Urbana</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-olive-950 mb-1">Quando deseja?</label>
+                        <select id="booking-when" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs font-medium">
+                            <option value="Hoje (Conexão Imediata)">⚡ Hoje (Imediato)</option>
+                            <option value="Amanhã no período da manhã">📅 Amanhã (Manhã)</option>
+                            <option value="Agendar Visita Técnica">🔬 Visita Técnica</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-olive-950 mb-1">Seu Nome</label>
+                        <input type="text" id="booking-name" required placeholder="Ex: André Almeida" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-olive-950 mb-1">Bairro / Condomínio</label>
+                        <input type="text" id="booking-location" required placeholder="Ex: Terras de Piracicaba" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs">
+                    </div>
+                </div>
+
+                <!-- Box Estimativa -->
+                <div class="bg-olive-900 text-parchment-50 rounded-2xl p-4 flex items-center justify-between">
+                    <div>
+                        <span class="block text-xs font-bold text-white">Estimativa Transparente</span>
+                        <span class="text-[11px] text-parchment-300">Gestão Terravie + Profissional Homologado</span>
+                    </div>
+                    <span id="booking-price-display" class="font-serif font-bold text-2xl text-earth-300">R$ 95,00</span>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-2.5 pt-1">
+                    <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs shadow transition cursor-pointer">
+                        Confirmar na Plataforma
+                    </button>
+                    <button type="button" onclick="sendBookingToWhatsApp()" class="w-full py-3.5 px-4 rounded-xl bg-earth-600 hover:bg-earth-700 text-parchment-50 font-bold text-xs shadow transition flex items-center justify-center gap-1.5 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Enviar no WhatsApp
+                    </button>
+                </div>
+            </form>
+
+            <!-- Confirmação do Pedido -->
+            <div id="booking-confirmation" class="hidden text-center py-5 space-y-4">
+                <div class="w-16 h-16 rounded-full bg-olive-100 text-olive-800 flex items-center justify-center mx-auto text-2xl border border-olive-300">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="font-serif font-bold text-xl text-olive-950">Solicitação Registrada!</h4>
+                <p id="booking-confirmation-msg" class="text-xs text-stone-600 leading-relaxed"></p>
+                <button onclick="closeBookingModal()" class="w-full py-3 rounded-xl bg-olive-800 text-parchment-50 font-bold text-xs cursor-pointer">
+                    Concluir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: HOMOLOGAÇÃO DE PARCEIROS ==================== -->
+    <div id="partner-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-olive-950/75 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-parchment-50 rounded-[2rem] max-w-md w-full p-6 sm:p-8 shadow-2xl border border-parchment-300 relative my-auto">
+            <button onclick="closePartnerModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-parchment-200 hover:bg-parchment-300 text-olive-950 flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="text-[11px] font-bold uppercase tracking-widest text-earth-600">Curadoria Técnica Terravie</span>
+            <h3 class="font-serif font-bold text-2xl text-olive-950 mt-1">Cadastro de Parceiro</h3>
+            <p class="text-xs text-stone-600 mt-1 mb-5">Integre nosso banco de dados homologado de jardineiros, paisagistas ou viveiros locais.</p>
+
+            <form id="partner-form" onsubmit="submitPartnerForm(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-olive-950 mb-1">Categoria de Parceria</label>
+                    <select id="partner-type" class="w-full px-4 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs sm:text-sm font-medium">
+                        <option>Jardineiro Autônomo / Técnico em Gramados</option>
+                        <option>Arquiteto(a) Paisagista</option>
+                        <option>Viveiro de Mudas / Fornecedor de Insumos</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-olive-950 mb-1">Nome Completo ou Empresa</label>
+                    <input type="text" id="partner-name" required placeholder="Ex: Marcos Oliveira" class="w-full px-4 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs sm:text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-olive-950 mb-1">WhatsApp</label>
+                        <input type="tel" id="partner-phone" required placeholder="(19) 99999-9999" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs sm:text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-olive-950 mb-1">Região de Atuação</label>
+                        <input type="text" id="partner-city" required placeholder="Cidade / Bairros" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-parchment-200 text-xs sm:text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-olive-950 mb-1">Experiência & Equipamentos</label>
+                    <textarea rows="2" placeholder="Conte brevemente sobre sua experiência com gramados, podas, projetos ou insumos..." class="w-full px-3.5 py-2 rounded-xl bg-white border border-parchment-200 text-xs"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-olive-800 hover:bg-olive-900 text-parchment-50 font-bold text-xs sm:text-sm shadow-lg transition cursor-pointer">
+                    Solicitar Avaliação de Curadoria
+                </button>
+            </form>
+
+            <div id="partner-success" class="hidden text-center py-6 space-y-3">
+                <div class="w-14 h-14 rounded-full bg-olive-100 text-olive-800 flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h4 class="font-serif font-bold text-xl text-olive-950">Pré-Cadastro Recebido!</h4>
+                <p id="partner-success-text" class="text-xs text-stone-600 leading-relaxed"></p>
+                <button onclick="closePartnerModal()" class="w-full py-3 rounded-xl bg-olive-800 text-parchment-50 font-bold text-xs cursor-pointer">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Flutuante -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 bg-olive-950 text-parchment-50 px-5 py-3.5 rounded-2xl shadow-2xl border border-olive-800 text-xs font-medium">
+        <i class="fa-solid fa-leaf text-earth-300 text-base"></i>
+        <span id="toast-text">Mensagem</span>
+    </div>
+
+    <!-- ==================== SCRIPTS INTERATIVOS & GEMINI API ==================== -->
+    <script>
+        let currentSpecialtyFilter = 'todos';
+        let currentSegmentFilter = 'todos';
+        let chosenProfessional = null;
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3600);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // --- Filtros da Rede Homologada ---
+        function handleHeroFilter(e) {
+            e.preventDefault();
+            const seg = document.getElementById('hero-segment').value;
+            const spec = document.getElementById('hero-specialty').value;
+            currentSegmentFilter = seg;
+            setSpecialtyFilter(spec);
+            document.getElementById('profissionais').scrollIntoView({ behavior: 'smooth' });
+            showToast('Filtrando especialistas homologados Terravie...');
+        }
+
+        function setSpecialtyFilter(spec) {
+            currentSpecialtyFilter = spec;
+            document.querySelectorAll('.spec-btn').forEach(btn => {
+                if (btn.dataset.spec === spec) {
+                    btn.classList.remove('bg-parchment-100', 'text-olive-900');
+                    btn.classList.add('bg-olive-800', 'text-parchment-50');
+                } else {
+                    btn.classList.add('bg-parchment-100', 'text-olive-900');
+                    btn.classList.remove('bg-olive-800', 'text-parchment-50');
+                }
+            });
+            applyCardFilters();
+        }
+
+        function applyCardFilters() {
+            document.querySelectorAll('.pro-card').forEach(card => {
+                const matchSpec = currentSpecialtyFilter === 'todos' || card.dataset.spec === currentSpecialtyFilter;
+                const matchSeg = currentSegmentFilter === 'todos' || card.dataset.segment === currentSegmentFilter;
+                if (matchSpec && matchSeg) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            // Reseta filtro de segmento após exibição inicial para não esconder opções ao clicar nas abas
+            currentSegmentFilter = 'todos';
+        }
+
+        // --- Modal de Atendimento & Orçamento ---
+        function openBookingModal(serviceLabel, basePrice = 95, proName = null) {
+            chosenProfessional = proName;
+            const modal = document.getElementById('booking-modal');
+            const form = document.getElementById('booking-form');
+            const conf = document.getElementById('booking-confirmation');
+            const info = document.getElementById('booking-pro-info');
+            const select = document.getElementById('booking-service');
+
+            form.classList.remove('hidden');
+            conf.classList.add('hidden');
+
+            info.textContent = proName
+                ? `Solicitação direta com ${proName} (Curadoria Terravie).`
+                : `Serviço: ${serviceLabel} • Curadoria e gestão Terravie.`;
+
+            for (let opt of select.options) {
+                if (parseInt(opt.value) === basePrice) {
+                    opt.selected = true;
+                    break;
+                }
+            }
+
+            updateBookingEstimate();
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function updateBookingEstimate() {
+            const base = parseFloat(document.getElementById('booking-service').value);
+            const mult = parseFloat(document.querySelector('input[name="area-size"]:checked').value);
+            const total = Math.round(base * mult);
+            document.getElementById('booking-price-display').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function confirmBooking(e) {
+            e.preventDefault();
+            const service = document.getElementById('booking-service').selectedOptions[0].text.split(' (')[0];
+            const name = document.getElementById('booking-name').value;
+            const loc = document.getElementById('booking-location').value;
+            const when = document.getElementById('booking-when').value;
+            const price = document.getElementById('booking-price-display').textContent;
+            const pro = chosenProfessional || 'um especialista homologado da Terravie';
+
+            document.getElementById('booking-form').classList.add('hidden');
+            document.getElementById('booking-confirmation').classList.remove('hidden');
+            document.getElementById('booking-confirmation-msg').innerHTML = `
+                Olá, <strong>${name}</strong>! Recebemos sua solicitação de <strong>${service}</strong> (${price}) com <strong>${pro}</strong> para <strong>${when}</strong> em <em>${loc}</em>. Nossa gestão entrará em contato em instantes.
+            `;
+        }
+
+        function sendBookingToWhatsApp() {
+            const service = document.getElementById('booking-service').selectedOptions[0].text.split(' (')[0];
+            const seg = document.getElementById('booking-segment').value;
+            const loc = document.getElementById('booking-location').value || 'Não informado';
+            const price = document.getElementById('booking-price-display').textContent;
+            const proText = chosenProfessional ? ` com o profissional ${chosenProfessional}` : '';
+
+            const text = encodeURIComponent(
+                `Olá, TERRAVIE! Gostaria de solicitar atendimento${proText}:\n` +
+                `• Serviço: ${service}\n` +
+                `• Imóvel: ${seg}\n` +
+                `• Local: ${loc}\n` +
+                `• Estimativa: ${price}`
+            );
+            window.open(`https://wa.me/5519999999999?text=${text}`, '_blank');
+        }
+
+        // --- Modal de Parceiros ---
+        function openPartnerModal() {
+            const modal = document.getElementById('partner-modal');
+            document.getElementById('partner-form').classList.remove('hidden');
+            document.getElementById('partner-success').classList.add('hidden');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closePartnerModal() {
+            const modal = document.getElementById('partner-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function submitPartnerForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('partner-name').value;
+            const type = document.getElementById('partner-type').value;
+            document.getElementById('partner-form').classList.add('hidden');
+            document.getElementById('partner-success').classList.remove('hidden');
+            document.getElementById('partner-success-text').textContent = `Obrigado, ${name}! Nossa equipe de curadoria analisará seu perfil como "${type}" e entrará em contato via WhatsApp para homologação.`;
+        }
+
+        // --- Diagnóstico Técnico com IA (Gemini API) ---
+        function setAiPrompt(text) {
+            const input = document.getElementById('ai-input');
+            input.value = text;
+            input.focus();
+        }
+
+        function formatAiMarkdown(raw) {
+            let html = raw
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                .replace(/^- (.*$)/gim, '<li>$1</li>');
+
+            html = html.replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`);
+            html = html.split('\n\n').map(block => {
+                if (block.trim().startsWith('<h3>') || block.trim().startsWith('<ul>')) return block;
+                return `<p>${block.replace(/\n/g, '<br>')}</p>`;
+            }).join('');
+            return html;
+        }
+
+        async function runTerravieAI() {
+            const input = document.getElementById('ai-input').value.trim();
+            if (!input) {
+                showToast('Descreva primeiro a situação do seu gramado ou jardim.');
+                document.getElementById('ai-input').focus();
+                return;
+            }
+
+            const btn = document.getElementById('ai-btn');
+            const loading = document.getElementById('ai-loading');
+            const resultBox = document.getElementById('ai-result');
+            const textContainer = document.getElementById('ai-text-container');
+
+            btn.disabled = true;
+            btn.classList.add('opacity-60', 'cursor-not-allowed');
+            resultBox.classList.add('hidden');
+            loading.classList.remove('hidden');
+
+            const systemInstruction = `Você é o Especialista Técnico em Botânica, Solos e Paisagismo da TERRAVIE ("Especialista em Gramados e Gestão de Jardins" — "Seu jardim em boas mãos").
+Analise o relato do cliente de forma consultiva, técnica e acessível em português do Brasil, estruturando exatamente nestes 3 tópicos:
+1. ### 🔬 Análise Técnica de Solo & Botânica: Diagnóstico provável (insolação, compactação, pH, pragas ou escolha de espécies).
+2. ### 🌿 Plano de Ação & Espécies Indicadas: Cuidados práticos de adubação, corte, rega ou plantas recomendadas.
+3. ### 🛠️ Solução Homologada TERRAVIE: Indique qual serviço da Terravie contratar (Gestão de Gramados, Diagnóstico Técnico Presencial, Manutenção Recorrente ou Projeto Paisagístico Sob Medida).`;
+
+            const apiKey = ""; // Fornecido automaticamente pelo ambiente
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: `Relato do cliente: ${input}` }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            let attempts = 0;
+            const maxAttempts = 3;
+            let done = false;
+
+            while (attempts < maxAttempts && !done) {
+                try {
+                    const res = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const data = await res.json();
+                    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                    if (reply) {
+                        textContainer.innerHTML = formatAiMarkdown(reply);
+                        loading.classList.add('hidden');
+                        resultBox.classList.remove('hidden');
+                        done = true;
+                    } else {
+                        throw new Error('Empty response');
+                    }
+                } catch (err) {
+                    attempts++;
+                    if (attempts >= maxAttempts) {
+                        loading.classList.add('hidden');
+                        textContainer.innerHTML = formatAiMarkdown(`
+### 🔬 Análise Técnica de Solo & Botânica
+* O quadro descrito indica necessidade de **aeração do solo e equilíbrio nutricional** (NPK rico em nitrogênio e potássio), além de ajuste na altura de corte para evitar estresse térmico nas raízes.
+
+### 🌿 Plano de Ação & Espécies Indicadas
+* **Cobertura e Adubação:** Aplicação de substrato orgânico peneirado e adubo de liberação lenta para estimular o fechamento uniforme do gramado.
+* **Espécies Complementares:** Para bordaduras de baixa manutenção, recomendamos *Clúsia*, *Moreia* ou *Podocarpo*.
+
+### 🛠️ Solução Homologada TERRAVIE
+* Recomendamos iniciar com uma **Visita Técnica de Diagnóstico & Gestão de Gramados** com um especialista homologado da Terravie para avaliação in loco e execução.
+                        `);
+                        resultBox.classList.remove('hidden');
+                    } else {
+                        await new Promise(r => setTimeout(r, Math.pow(2, attempts) * 1000));
+                    }
+                }
+            }
+
+            btn.disabled = false;
+            btn.classList.remove('opacity-60', 'cursor-not-allowed');
+        }
+
+        function copyDiagnostic() {
+            const text = document.getElementById('ai-text-container').innerText;
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast('Relatório técnico copiado!');
+        }
+    </script>
+</body>
+</html>
