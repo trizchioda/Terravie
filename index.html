@@ -1138,7 +1138,7 @@
         <span id="toast-text">Mensagem</span>
     </div>
 
-    <!-- ==================== SCRIPTS INTERATIVOS & GEMINI API ==================== -->
+    <!-- ==================== SCRIPTS INTERATIVOS & IA ==================== -->
     <script>
         let currentSpecialtyFilter = 'todos';
         let currentSegmentFilter = 'todos';
@@ -1296,7 +1296,7 @@
             document.getElementById('partner-success-text').textContent = `Obrigado, ${name}! Nossa equipe de curadoria analisará seu perfil como "${type}" e entrará em contato via WhatsApp para homologação.`;
         }
 
-        // --- Diagnóstico Técnico com IA (Gemini API) ---
+        // --- Diagnóstico Técnico com IA (Groq via proxy) ---
         function setAiPrompt(text) {
             const input = document.getElementById('ai-input');
             input.value = text;
@@ -1337,18 +1337,11 @@
             resultBox.classList.add('hidden');
             loading.classList.remove('hidden');
 
-            const systemInstruction = `Você é o Especialista Técnico em Botânica, Solos e Paisagismo da TERRAVIE ("Especialista em Gramados e Gestão de Jardins" — "Seu jardim em boas mãos").
-Analise o relato do cliente de forma consultiva, técnica e acessível em português do Brasil, estruturando exatamente nestes 3 tópicos:
-1. ### 🔬 Análise Técnica de Solo & Botânica: Diagnóstico provável (insolação, compactação, pH, pragas ou escolha de espécies).
-2. ### 🌿 Plano de Ação & Espécies Indicadas: Cuidados práticos de adubação, corte, rega ou plantas recomendadas.
-3. ### 🛠️ Solução Homologada TERRAVIE: Indique qual serviço da Terravie contratar (Gestão de Gramados, Diagnóstico Técnico Presencial, Manutenção Recorrente ou Projeto Paisagístico Sob Medida).`;
-
-            const apiKey = "AIzaSyBL_qjVV8G2Gt80Bb68MmyaBFI7In8b7mg"; // Fornecido automaticamente pelo ambiente
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+            // URL do seu proxy (Cloudflare Worker). Troque pela sua depois de publicar.
+            const apiUrl = "https://terravie-ia.triz-chioda.workers.dev";
 
             const payload = {
-                contents: [{ parts: [{ text: `Relato do cliente: ${input}` }] }],
-                systemInstruction: { parts: [{ text: systemInstruction }] }
+                message: `Relato do cliente: ${input}`
             };
 
             let attempts = 0;
@@ -1364,7 +1357,7 @@ Analise o relato do cliente de forma consultiva, técnica e acessível em portug
                     });
                     if (!res.ok) throw new Error(`HTTP ${res.status}`);
                     const data = await res.json();
-                    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+                    const reply = data?.reply;
 
                     if (reply) {
                         textContainer.innerHTML = formatAiMarkdown(reply);
